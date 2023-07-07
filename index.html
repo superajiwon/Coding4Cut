@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>코딩네컷 만들기</title>
+    <style>
+      /* 이서윤체 폰트 적용을 위한 코드 */
+      @font-face {
+        font-family: "LeeSeoyun";
+        src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2202-2@1.0/LeeSeoyun.woff")
+          format("woff");
+        font-weight: normal;
+        font-style: normal;
+      }
+
+      /* body 태그 자체에 css 요소 부여 */
+      body {
+        font-family: "LeeSeoyun";
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        background: url("./background.jpg") no-repeat center fixed;
+        background-size: cover;
+      }
+
+      .container {
+        width: 390px;
+        background-color: #ffffff;
+        height: 100%;
+      }
+
+      .photos {
+        margin-top: 30px;
+      }
+
+      .photo-frame{
+        background-color: white;
+        margin: 15px 20px;
+        height: 200px;
+
+        background-size: cover;
+        position: relative;
+
+        cursor: pointer;
+      }
+
+      .footer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .f-title {
+         font-size: 25px;
+         font-weight: 900;
+      }
+
+      #w1 {
+        color: #2b1d77;
+      }
+      #w2 {
+        color: #5eb4e6;
+      }
+      #w3 {
+        color: #ca6420;
+      }
+      #w4 {
+        color: #db1627;
+      }
+      #w5 {
+        color: #416302;
+      }
+      #w6 {
+        color: #1d694c;
+      }
+      #w7 {
+        color: #20caa5;
+      }
+      #w8 {
+        color: #0ad4f8;
+      }
+      #w9 {
+        color: #20cab3;
+      }
+
+      .f-date {
+         color: black;
+         font-size: 15px;
+         font-weight: 500;
+      }
+
+      #image1 {
+        background-image: url('./img1.jpg');
+      }
+      
+      #image2 {
+        background-image: url('./img2.jpg');
+      }
+      
+      #image3 {
+        background-image: url('./img3.jpg');
+      }
+
+      .photo_description {
+        color: white;
+        background-color: black;
+
+        width: fit-content;
+        padding: 2px 20px;
+        margin-bottom: 10px;
+
+        border-radius: 10px;
+        position: absolute;
+        bottom: 0;
+
+        transform: translate(-50%);
+        left: 50%;
+        
+        opacity: 0;
+    }
+
+    .video {
+        width: 100%;
+        height: 100%;
+    }
+
+    .showText {
+        opacity: 1;
+    }
+
+    .hideText {
+        opacity: 0;
+
+        transition: opacity 0.5s linear;
+    }
+    </style>
+
+    <script>
+        function showText(number) {
+            if (number === 1) {
+                document.querySelector("#desc1").classList.remove("hideText");
+                document.querySelector("#desc1").classList.add("showText");
+            } else if (number === 2) {
+                document.querySelector("#desc2").classList.remove("hideText");
+                document.querySelector("#desc2").classList.add("showText");
+            } else {
+                document.querySelector("#desc3").classList.remove("hideText");
+                document.querySelector("#desc3").classList.add("showText");
+            }
+        }
+
+        function hideText(number) {
+            if (number === 1) {
+                document.querySelector("#desc1").classList.remove("showText");
+                document.querySelector("#desc1").classList.add("hideText");
+            } else if (number === 2) {
+                document.querySelector("#desc2").classList.remove("showText");
+                document.querySelector("#desc2").classList.add("hideText");
+            } else{
+                document.querySelector("#desc3").classList.remove("showText");
+                document.querySelector("#desc3").classList.add("hideText");
+            }
+        }
+        
+        function alertText(number) {
+            alert(`${number}번째 추억!`);
+        }
+    </script>
+
+</head>
+<body>
+    <div class="container">
+        <div class="photos">
+            <div 
+                id="image1" class="photo-frame"
+                onmouseover="showText(1)"
+                onmouseout="hideText(1)"
+                onclick="alertText(1)"
+            >
+                <span id="desc1" class="photo_description">
+                    엠버
+                </span>
+            </div>
+            <div 
+                id="image2" class="photo-frame"
+                onmouseover="showText(2)"
+                onmouseout="hideText(2)"
+                onclick="alertText(2)"
+            >
+                <span id="desc2" class="photo_description">
+                    첫만남 '3'
+                </span></div>
+            <div 
+                id="image3" class="photo-frame"
+                onmouseover="showText(3)"
+                onmouseout="hideText(3)"
+                onclick="alertText(3)"
+            >
+                <span id="desc3" class="photo_description">
+                    웨이드
+                </span></div>
+            <div class="photo-frame">
+                <iframe 
+                    src="https://www.youtube.com/embed/9ERyopFh-dw" 
+                    frameborder="0" 
+                    class="video"
+                ></iframe>
+            </div>
+        </div>
+        <div class="footer">
+            <p class="f-title">
+                <span id="w1">E</span>
+                <span id="w2">L</span>
+                <span id="w3">E</span>
+                <span id="w4">M</span>
+                <span id="w5">E</span>
+                <span id="w6">N</span>
+                <span id="w7">T</span>
+                <span id="w8">A</span>
+                <span id="w9">L</span>
+                </p>
+            <p class="f-date">2023.07.06</p>
+        </div>
+    </div>
+</body>
+</html>
